@@ -1,9 +1,8 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import Login from "./components/user/Login";
-import Register from "./components/user/Register";
+import Login from "./user/Login";
+import Register from "./user/Register";
 import Home from "./core/Home";
-import Menu from "./core/Menu";
 
 const Routes = () => {
     return (
