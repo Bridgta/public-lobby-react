@@ -40,18 +40,17 @@ const Home = () => {
             description="The Public Lobby"
             className="container-fluid"
         >
-            <h2 className="mb-4">New Bills</h2>
+            <h2 className="mb-4">Trending Funds</h2>
             <div className="row">
-                {projectsByArrival.map((project, i) => (
+                {projectsBySell.map((project, i) => (
                     <div key={i} className="col-4 mb-3">
                         <Card project={project} />
                     </div>
                 ))}
             </div>
-
-            <h2 className="mb-4">Trending Funds</h2>
+            <h2 className="mb-4">New Bills</h2>
             <div className="row">
-                {projectsBySell.map((project, i) => (
+                {projectsByArrival.map((project, i) => (
                     <div key={i} className="col-4 mb-3">
                         <Card project={project} />
                     </div>
