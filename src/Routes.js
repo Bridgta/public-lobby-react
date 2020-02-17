@@ -8,6 +8,7 @@ import Dash from "./user/UserDash";
 import AdminRoute from "./auth/AdminRoute";
 import AdminDash from "./user/AdminDash";
 import AddCategory from "./admin/AddCategory";
+import AddProject from "./admin/AddProject";
 
 const Routes = () => {
     return (
@@ -22,6 +23,11 @@ const Routes = () => {
                     path="/create/category"
                     exact
                     component={AddCategory}
+                />
+                <AdminRoute
+                    path="/create/project"
+                    exact
+                    component={AddProject}
                 />
             </Switch>
         </BrowserRouter>

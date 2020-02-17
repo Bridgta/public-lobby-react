@@ -17,3 +17,30 @@ export const createCategory = (userId, token, category) => {
             console.log(err);
         });
 };
+
+export const createProject = (userId, token, project) => {
+    return fetch(`${API}/project/create/${userId}`, {
+        method: "POST",
+        headers: {
+            Accept: "application/json",
+            Authorization: `Bearer ${token}`
+        },
+        body: project
+    })
+        .then(response => {
+            return response.json();
+        })
+        .catch(err => {
+            console.log(err);
+        });
+};
+
+export const getCategories = () => {
+    return fetch(`${API}/categories`, {
+        method: "GET"
+    })
+        .then(response => {
+            return response.json();
+        })
+        .catch(err => console.log(err));
+};
