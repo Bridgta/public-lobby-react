@@ -35,6 +35,16 @@ export const createProject = (userId, token, project) => {
         });
 };
 
+export const getCategory = categoryId => {
+    return fetch(`${API}/category/${categoryId}`, {
+        method: "GET"
+    })
+        .then(response => {
+            return response.json();
+        })
+        .catch(err => console.log(err));
+};
+
 export const getCategories = () => {
     return fetch(`${API}/categories`, {
         method: "GET"

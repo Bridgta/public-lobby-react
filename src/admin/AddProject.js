@@ -5,39 +5,38 @@ import { Link } from "react-router-dom";
 import { createProject, getCategories } from "./apiAdmin";
 
 const AddProject = () => {
+    const { user, token } = isAuthenticated();
     const [values, setValues] = useState({
         title: "",
         description: "",
         amountNeeded: "",
         categories: [],
         category: "",
-        taxRecpit: "",
+        tax: "",
         goalReached: "",
         photo: "",
         loading: false,
         error: "",
-        createdProject: "",
+        createdProduct: "",
         redirectToProfile: false,
         formData: ""
     });
 
-    const { user, token } = isAuthenticated();
     const {
-        name,
+        title,
         description,
         amountNeeded,
         categories,
         category,
-        taxRecpit,
+        tax,
         goalReached,
         loading,
         error,
-        createdProject,
+        createdProduct,
         redirectToProfile,
         formData
     } = values;
 
-    // load categories and set form data
     const init = () => {
         getCategories().then(data => {
             if (data.error) {
@@ -73,13 +72,13 @@ const AddProject = () => {
             } else {
                 setValues({
                     ...values,
-                    name: "",
+                    title: "",
                     description: "",
                     photo: "",
                     amountNeeded: "",
-                    goalReached: "",
+                    goalreached: "",
                     loading: false,
-                    createdProject: data.name
+                    createdProduct: data.name
                 });
             }
         });
@@ -98,17 +97,15 @@ const AddProject = () => {
                     />
                 </label>
             </div>
-
             <div className="form-group">
-                <label className="text-muted">Name</label>
+                <label className="text-muted">Title</label>
                 <input
-                    onChange={handleChange("name")}
+                    onChange={handleChange("title")}
                     type="text"
                     className="form-control"
-                    value={name}
+                    value={title}
                 />
             </div>
-
             <div className="form-group">
                 <label className="text-muted">Description</label>
                 <textarea
@@ -117,9 +114,8 @@ const AddProject = () => {
                     value={description}
                 />
             </div>
-
             <div className="form-group">
-                <label className="text-muted">Amount Needed</label>
+                <label className="text-muted">Amount To Raise</label>
                 <input
                     onChange={handleChange("amountNeeded")}
                     type="number"
@@ -127,37 +123,28 @@ const AddProject = () => {
                     value={amountNeeded}
                 />
             </div>
-
             <div className="form-group">
                 <label className="text-muted">Category</label>
                 <select
                     onChange={handleChange("category")}
                     className="form-control"
                 >
-                    <option>Please select</option>
-                    {categories &&
-                        categories.map((c, i) => (
-                            <option key={i} value={c._id}>
-                                {c.name}
-                            </option>
-                        ))}
+                    <option value="5e4a212bca4e21806b5a764a">
+                        Gun Control
+                    </option>
+                    <option value="5e4a3315ca4e21806b5a764b">HealthCare</option>
                 </select>
             </div>
-
             <div className="form-group">
-                <label className="text-muted">Tax-Deductible</label>
-                <select
-                    onChange={handleChange("Tax-Deductible")}
-                    className="form-control"
-                >
+                <label className="text-muted">Tax Deductible</label>
+                <select onChange={handleChange("tax")} className="form-control">
                     <option>Please select</option>
                     <option value="0">No</option>
                     <option value="1">Yes</option>
                 </select>
             </div>
-
             <div className="form-group">
-                <label className="text-muted">Goal Reached</label>
+                <label className="text-muted">Amout Raised</label>
                 <input
                     onChange={handleChange("goalReached")}
                     type="number"
@@ -165,35 +152,9 @@ const AddProject = () => {
                     value={goalReached}
                 />
             </div>
-
             <button className="btn btn-outline-primary">Create Project</button>
         </form>
     );
-
-    const showError = () => (
-        <div
-            className="alert alert-danger"
-            style={{ display: error ? "" : "none" }}
-        >
-            {error}
-        </div>
-    );
-
-    const showSuccess = () => (
-        <div
-            className="alert alert-info"
-            style={{ display: createdProject ? "" : "none" }}
-        >
-            <h2>{`${createdProject}`} is created!</h2>
-        </div>
-    );
-
-    const showLoading = () =>
-        loading && (
-            <div className="alert alert-success">
-                <h2>Loading...</h2>
-            </div>
-        );
 
     return (
         <Layout
@@ -201,12 +162,7 @@ const AddProject = () => {
             description={`G'day ${user.name}, ready to add a new project?`}
         >
             <div className="row">
-                <div className="col-md-8 offset-md-2">
-                    {showLoading()}
-                    {showSuccess()}
-                    {showError()}
-                    {newPostForm()}
-                </div>
+                <div className="col-md-8 offset-md-2">{newPostForm()}</div>
             </div>
         </Layout>
     );
