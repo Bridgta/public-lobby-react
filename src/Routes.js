@@ -9,12 +9,14 @@ import AdminRoute from "./auth/AdminRoute";
 import AdminDash from "./user/AdminDash";
 import AddCategory from "./admin/AddCategory";
 import AddProject from "./admin/AddProject";
+import Purchase from "./core/Purchase";
 
 const Routes = () => {
     return (
         <BrowserRouter>
             <Switch>
                 <Route path="/" exact component={Home} />
+                <Route path="/purchase" exact component={Purchase} />
                 <Route path="/login" exact component={Login} />
                 <Route path="/register" exact component={Register} />
                 <PrivateRoute path="/user/dash" exact component={Dash} />

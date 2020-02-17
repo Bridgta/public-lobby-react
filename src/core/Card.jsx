@@ -12,11 +12,12 @@ const Card = ({ project }) => {
                 <p>${project.amountNeeded}</p>
                 <Link to="/">
                     {" "}
-                    <button className="btn.btn-outline-primary mt-2 mb-2">
-                        view project
+                    <button className="btn btn-outline-primary mt-2 mb-2 card-btn-1">
+                        View Project
                     </button>
-                    <button className="btn.btn-outline-primary mt-2 mb-2">
-                        Donate Now
+                    <button className="btn btn-outline-primary mt-2 mb-2 card-btn-1">
+                        {" "}
+                        Donate Now{" "}
                     </button>
                 </Link>
             </div>
