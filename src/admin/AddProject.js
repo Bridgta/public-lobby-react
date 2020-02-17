@@ -17,7 +17,7 @@ const AddProject = () => {
         photo: "",
         loading: false,
         error: "",
-        createdProduct: "",
+        createdProject: "",
         redirectToProfile: false,
         formData: ""
     });
@@ -32,7 +32,7 @@ const AddProject = () => {
         goalReached,
         loading,
         error,
-        createdProduct,
+        createdProject,
         redirectToProfile,
         formData
     } = values;
@@ -78,7 +78,7 @@ const AddProject = () => {
                     amountNeeded: "",
                     goalreached: "",
                     loading: false,
-                    createdProduct: data.name
+                    createdProject: data.name
                 });
             }
         });
@@ -129,10 +129,13 @@ const AddProject = () => {
                     onChange={handleChange("category")}
                     className="form-control"
                 >
-                    <option value="5e4a212bca4e21806b5a764a">
-                        Gun Control
-                    </option>
-                    <option value="5e4a3315ca4e21806b5a764b">HealthCare</option>
+                    <option>Please select</option>
+                    {categories &&
+                        categories.map((c, i) => (
+                            <option key={i} value={c._id}>
+                                {c.name}
+                            </option>
+                        ))}
                 </select>
             </div>
             <div className="form-group">
@@ -156,13 +159,43 @@ const AddProject = () => {
         </form>
     );
 
+    const showError = () => (
+        <div
+            className="alert alert-danger"
+            style={{ display: error ? "" : "none" }}
+        >
+            {error}
+        </div>
+    );
+
+    const showSuccess = () => (
+        <div
+            className="alert alert-info"
+            style={{ display: createdProject ? "" : "none" }}
+        >
+            <h2>{`${createdProject}`} is created!</h2>
+        </div>
+    );
+
+    const showLoading = () =>
+        loading && (
+            <div className="alert alert-success">
+                <h2>Loading...</h2>
+            </div>
+        );
+
     return (
         <Layout
             title="Add a new project"
             description={`G'day ${user.name}, ready to add a new project?`}
         >
             <div className="row">
-                <div className="col-md-8 offset-md-2">{newPostForm()}</div>
+                <div className="col-md-8 offset-md-2">
+                    {showLoading()}
+                    {showSuccess()}
+                    {showError()}
+                    {newPostForm()}
+                </div>
             </div>
         </Layout>
     );
