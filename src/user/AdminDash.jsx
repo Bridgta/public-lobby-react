@@ -3,25 +3,35 @@ import Layout from "../core/Layout";
 import { isAuthenticated } from "../auth";
 import { Link } from "react-router-dom";
 
-const Dash = () => {
+const AdminDash = () => {
     const {
         user: { _id, name, email, role }
     } = isAuthenticated();
     // const token = isAuthenticated().token;
 
-    const userLinks = () => {
+    const adminLinks = () => {
         return (
             <div className="card">
-                <h4 className="card-header">User Links</h4>
+                <h4 className="card-header">Admin Links</h4>
                 <ul className="list-group">
                     <li className="list-group-item">
-                        <Link className="nav-link" to="/cart">
-                            My Donations
+                        <Link className="nav-link" to="/create/category">
+                            Create Category
                         </Link>
                     </li>
                     <li className="list-group-item">
-                        <Link className="nav-link" to={`/profile/${_id}`}>
-                            Update Profile
+                        <Link className="nav-link" to="/create/project">
+                            Create project
+                        </Link>
+                    </li>
+                    <li className="list-group-item">
+                        <Link className="nav-link" to="/admin/donations">
+                            View Donations
+                        </Link>
+                    </li>
+                    <li className="list-group-item">
+                        <Link className="nav-link" to="/admin/projects">
+                            Manage Projects
                         </Link>
                     </li>
                 </ul>
@@ -29,7 +39,7 @@ const Dash = () => {
         );
     };
 
-    const userInfo = () => {
+    const adminInfo = () => {
         return (
             <div className="card mb-5">
                 <h3 className="card-header">User Information</h3>
@@ -44,32 +54,18 @@ const Dash = () => {
         );
     };
 
-    const purchaseHistory = () => {
-        return (
-            <div className="card">
-                <h3 className="card-header">Donation Hisotry</h3>
-                <ul className="list-group">
-                    <li className="list-group-item">his</li>
-                </ul>
-            </div>
-        );
-    };
-
     return (
         <Layout
             title="Dashboard"
-            description={`yooooo ${name}!`}
+            description={`yoyoooyo its officer ${name}!`}
             className="container-fluid"
         >
             <div className="row">
-                <div className="col-3">{userLinks()}</div>
-                <div className="col-9">
-                    {userInfo()}
-                    {purchaseHistory()}
-                </div>
+                <div className="col-3">{adminLinks()}</div>
+                <div className="col-9">{adminInfo()}</div>
             </div>
         </Layout>
     );
 };
 
-export default Dash;
+export default AdminDash;
