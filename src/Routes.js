@@ -11,6 +11,7 @@ import AddCategory from "./admin/AddCategory";
 import AddProject from "./admin/AddProject";
 import Purchase from "./core/Purchase";
 import Project from "./core/Project";
+import Cart from "./core/Cart";
 
 const Routes = () => {
     return (
@@ -33,6 +34,7 @@ const Routes = () => {
                     component={AddProject}
                 />
                 <Route path="/project/:projectId" exact component={Project} />
+                <Route path="/cart" exact component={Cart} />
             </Switch>
         </BrowserRouter>
     );
