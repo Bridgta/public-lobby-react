@@ -10,6 +10,7 @@ import AdminDash from "./user/AdminDash";
 import AddCategory from "./admin/AddCategory";
 import AddProject from "./admin/AddProject";
 import Purchase from "./core/Purchase";
+import Project from "./core/Project";
 
 const Routes = () => {
     return (
@@ -31,6 +32,7 @@ const Routes = () => {
                     exact
                     component={AddProject}
                 />
+                <Route path="/project/:projectId" exact component={Project} />
             </Switch>
         </BrowserRouter>
     );
