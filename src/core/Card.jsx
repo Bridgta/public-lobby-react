@@ -2,8 +2,13 @@ import React, { useState } from "react";
 import { Link, Redirect } from "react-router-dom";
 import ShowImage from "./ShowImage";
 import moment from "moment";
+import { addItem } from "./cartHelpers";
 
-const Card = ({ project, showViewProjectButton = true }) => {
+const Card = ({
+    project,
+    showViewProjectButton = true,
+    showAddToCartButton = true
+}) => {
     const [redirect, setRedirect] = useState(false);
     const [count, setCount] = useState(project.count);
 
@@ -19,12 +24,27 @@ const Card = ({ project, showViewProjectButton = true }) => {
         );
     };
 
-    const handleChange = projectId => event => {
-        setRun(!run); // run useEffect in parent Cart
-        setCount(event.target.value < 1 ? 1 : event.target.value);
-        if (event.target.value >= 1) {
-            updateItem(projectId, event.target.value);
+    const addToCart = () => {
+        addItem(project, setRedirect(true));
+    };
+
+    const shouldRedirect = redirect => {
+        if (redirect) {
+            return <Redirect to="/cart" />;
         }
+    };
+
+    const showAddToCartBtn = showAddToCartButton => {
+        return (
+            showAddToCartButton && (
+                <button
+                    onClick={addToCart}
+                    className="btn btn-outline-warning mt-2 mb-2 card-btn-1  "
+                >
+                    Donate to this fund
+                </button>
+            )
+        );
     };
 
     return (
@@ -44,6 +64,7 @@ const Card = ({ project, showViewProjectButton = true }) => {
                     Added on {moment(project.createdAt).fromNow()}
                 </p>
                 <br />
+                {showAddToCartBtn(showAddToCartButton)}
 
                 {showViewButton(showViewProjectButton)}
             </div>
