@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getCategories } from "./apiCore";
+import { getCategories, list } from "./apiCore";
 import Card from "./Card";
 
 const Search = () => {
@@ -26,6 +26,56 @@ const Search = () => {
     useEffect(() => {
         loadCategories();
     }, []);
+
+    const searchData = () => {
+        if (search) {
+            list({ search: search || undefined, category: category }).then(
+                response => {
+                    if (response.error) {
+                        console.log(response.error);
+                    } else {
+                        setData({ ...data, results: response, searched: true });
+                    }
+                }
+            );
+        }
+    };
+
+    const searchSubmit = e => {
+        e.preventDefault();
+        searchData();
+    };
+
+    const handleChange = name => event => {
+        setData({ ...data, [name]: event.target.value, searched: false });
+    };
+
+    const searchMessage = (searched, results) => {
+        if (searched && results.length > 0) {
+            return `Found ${results.length} funds`;
+        }
+        if (searched && results.length < 1) {
+            return `No project found`;
+        }
+    };
+
+    const searchedProjects = (results = []) => {
+        return (
+            <div>
+                <h2 className="mt-4 mb-4">
+                    {searchMessage(searched, results)}
+                </h2>
+
+                <div className="row">
+                    {results.map((project, i) => (
+                        <div className="col-4 mb-3">
+                            <Card key={i} project={project} />
+                        </div>
+                    ))}
+                </div>
+            </div>
+        );
+    };
 
     const searchForm = () => (
         <form onSubmit={searchSubmit}>
@@ -65,7 +115,9 @@ const Search = () => {
     return (
         <div className="row">
             <div className="container mb-3">{searchForm()}</div>
-            <div className="container-fluid mb-3">search</div>
+            <div className="container-fluid mb-3">
+                {searchedProjects(results)}
+            </div>
         </div>
     );
 };

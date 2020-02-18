@@ -46,7 +46,7 @@ export const getFilteredProjects = (skip, limit, filters = {}) => {
 export const list = params => {
     const query = queryString.stringify(params);
     console.log("query", query);
-    return fetch(`${API}/projects/search?${query}`, {
+    return fetch(`${API}/projects?${query}`, {
         method: "GET"
     })
         .then(response => {
