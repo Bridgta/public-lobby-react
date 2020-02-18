@@ -64,3 +64,13 @@ export const read = projectId => {
         })
         .catch(err => console.log(err));
 };
+
+export const listRelated = projectId => {
+    return fetch(`${API}/projects/related/${projectId}`, {
+        method: "GET"
+    })
+        .then(response => {
+            return response.json();
+        })
+        .catch(err => console.log(err));
+};

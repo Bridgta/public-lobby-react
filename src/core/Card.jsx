@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, Redirect } from "react-router-dom";
 import ShowImage from "./ShowImage";
+import moment from "moment";
 
 const Card = ({ project, showViewProjectButton = true }) => {
     const showViewButton = showViewProjectButton => {
@@ -17,21 +18,25 @@ const Card = ({ project, showViewProjectButton = true }) => {
 
     return (
         <div className="card ">
-            <div className="card-header card-header-1 ">{project.title}</div>
+            <div className="card-header name card-header-1 ">
+                {project.title}
+            </div>
             <div className="card-body">
                 <ShowImage item={project} url="project" />
-                <p>{project.description.substring(0, 100)}</p>
-                <p>${project.price}</p>
-                {/* <p className="black-9">
+                <p className="card-p  mt-2">
+                    {project.description.substring(0, 100)}
+                </p>
+                <p className="card-p black-10">$ {project.price}</p>
+                <p className="black-9">
                     Category: {project.category && project.category.name}
-                </p> */}
-                <Link to={`/project/${project._id}`} className="mr-2">
-                    {showViewButton(showViewProjectButton)}
-                </Link>
-                <button className="btn btn-outline-primary mt-2 mb-2 card-btn-1">
-                    {" "}
-                    Donate Now{" "}
-                </button>
+                </p>
+                <p className="black-8">
+                    Added on {moment(project.createdAt).fromNow()}
+                </p>
+                <p className="black-8">Congress Member:</p>
+                <br />
+                {showViewButton(showViewProjectButton)}
+                {/* {showAddToCartBtn(showAddToCartButton)} */}
             </div>
         </div>
     );
