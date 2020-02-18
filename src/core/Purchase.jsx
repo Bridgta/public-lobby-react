@@ -71,7 +71,6 @@ const Purchase = () => {
     }, []);
 
     const handleFilters = (filters, filterBy) => {
-        // console.log("SHOP", filters, filterBy);
         const newFilters = { ...myFilters };
         newFilters.filters[filterBy] = filters;
 

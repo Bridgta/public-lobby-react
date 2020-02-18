@@ -8,7 +8,7 @@ const Card = ({ project }) => {
             <div className="card-header card-header-1 ">{project.title}</div>
             <div className="card-body">
                 <ShowImage item={project} url="project" />
-                <p>{project.description}</p>
+                <p>{project.description.substring(0, 100)}</p>
                 <p>${project.price}</p>
                 <Link to="/">
                     {" "}

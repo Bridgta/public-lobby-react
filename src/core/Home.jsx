@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Layout from "./Layout";
 import { getProjects } from "./apiCore";
 import Card from "./Card";
+import Search from "./Search";
 
 const Home = () => {
     const [projectsBySell, setProjectsBySell] = useState([]);
@@ -40,6 +41,7 @@ const Home = () => {
             description="The Public Lobby"
             className="container-fluid"
         >
+            <Search />
             <h2 className="mb-4">Trending Funds</h2>
             <div className="row">
                 {projectsBySell.map((project, i) => (
