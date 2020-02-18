@@ -53,3 +53,21 @@ export const updateItem = (projectId, count) => {
         localStorage.setItem("cart", JSON.stringify(cart));
     }
 };
+
+export const removeItem = projectId => {
+    let cart = [];
+    if (typeof window !== "undefined") {
+        if (localStorage.getItem("cart")) {
+            cart = JSON.parse(localStorage.getItem("cart"));
+        }
+
+        cart.map((project, i) => {
+            if (project._id === projectId) {
+                cart.splice(i, 1);
+            }
+        });
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+    }
+    return cart;
+};

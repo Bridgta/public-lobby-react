@@ -23,7 +23,7 @@ const Cart = () => {
                         project={project}
                         showAddToCartButton={false}
                         cartUpdate={true}
-                        showRemoveProductButton={true}
+                        showRemoveProjectButton={true}
                         setRun={setRun}
                         run={run}
                     />
