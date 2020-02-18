@@ -9,7 +9,7 @@ const AddProject = () => {
     const [values, setValues] = useState({
         title: "",
         description: "",
-        amountNeeded: "",
+        price: "",
         categories: [],
         category: "",
         tax: "",
@@ -25,7 +25,7 @@ const AddProject = () => {
     const {
         title,
         description,
-        amountNeeded,
+        price,
         categories,
         category,
         tax,
@@ -75,7 +75,7 @@ const AddProject = () => {
                     title: "",
                     description: "",
                     photo: "",
-                    amountNeeded: "",
+                    price: "",
                     goalreached: "",
                     loading: false,
                     createdProject: data.name
@@ -117,10 +117,10 @@ const AddProject = () => {
             <div className="form-group">
                 <label className="text-muted">Amount To Raise</label>
                 <input
-                    onChange={handleChange("amountNeeded")}
+                    onChange={handleChange("price")}
                     type="number"
                     className="form-control"
-                    value={amountNeeded}
+                    value={price}
                 />
             </div>
             <div className="form-group">

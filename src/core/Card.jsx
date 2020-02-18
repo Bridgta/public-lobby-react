@@ -9,7 +9,7 @@ const Card = ({ project }) => {
             <div className="card-body">
                 <ShowImage item={project} url="project" />
                 <p>{project.description}</p>
-                <p>${project.amountNeeded}</p>
+                <p>${project.price}</p>
                 <Link to="/">
                     {" "}
                     <button className="btn btn-outline-primary mt-2 mb-2 card-btn-1">
