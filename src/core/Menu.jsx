@@ -51,8 +51,8 @@ const Menu = ({ history }) => (
                 <li className="nav-item">
                     <Link
                         className="nav-link"
-                        style={isActive(history, "/user/dashboard")}
-                        to="/user/dashboard"
+                        style={isActive(history, "/user/dash")}
+                        to="/user/dashb"
                     >
                         Dashboard
                     </Link>
@@ -63,8 +63,8 @@ const Menu = ({ history }) => (
                 <li className="nav-item">
                     <Link
                         className="nav-link"
-                        style={isActive(history, "/admin/dashboard")}
-                        to="/admin/dashboard"
+                        style={isActive(history, "/admin/dash")}
+                        to="/admin/dash"
                     >
                         Dashboard
                     </Link>
