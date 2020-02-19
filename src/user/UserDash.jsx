@@ -13,19 +13,19 @@ const Dashboard = () => {
     } = isAuthenticated();
     const token = isAuthenticated().token;
 
-    const init = (userId, token) => {
-        getPurchaseHistory(userId, token).then(data => {
-            if (data.error) {
-                console.log(data.error);
-            } else {
-                setHistory(data);
-            }
-        });
-    };
+    // const init = (userId, token) => {
+    //     getPurchaseHistory(userId, token).then(data => {
+    //         if (data.error) {
+    //             console.log(data.error);
+    //         } else {
+    //             setHistory(data);
+    //         }
+    //     });
+    // };
 
-    useEffect(() => {
-        init(_id, token);
-    }, []);
+    // useEffect(() => {
+    //     init(_id, token);
+    // }, []);
 
     const userLinks = () => {
         return (
@@ -66,33 +66,7 @@ const Dashboard = () => {
         return (
             <div className="card mb-5">
                 <h3 className="card-header">Purchase history</h3>
-                <ul className="list-group">
-                    <li className="list-group-item">
-                        {history.map((h, i) => {
-                            return (
-                                <div>
-                                    <hr />
-                                    {h.projects.map((p, i) => {
-                                        return (
-                                            <div key={i}>
-                                                <h6>Project name: {p.name}</h6>
-                                                <h6>
-                                                    Project price: ${p.price}
-                                                </h6>
-                                                <h6>
-                                                    Purchased date:{" "}
-                                                    {moment(
-                                                        p.createdAt
-                                                    ).fromNow()}
-                                                </h6>
-                                            </div>
-                                        );
-                                    })}
-                                </div>
-                            );
-                        })}
-                    </li>
-                </ul>
+                <ul className="list-group"></ul>
             </div>
         );
     };
