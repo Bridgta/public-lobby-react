@@ -42,7 +42,9 @@ const Home = () => {
             className="container-fluid"
         >
             <Search />
-            <h2 className="mb-4">Trending Funds</h2>
+            <h2 className="mb-4">
+                <i class="fas fa-analytics">Trending Funds</i>
+            </h2>
             <div className="row">
                 {projectsBySell.map((project, i) => (
                     <div key={i} className="col-4 mb-3">

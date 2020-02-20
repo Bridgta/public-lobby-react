@@ -3,6 +3,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Login from "./user/Login";
 import Register from "./user/Register";
 import Home from "./core/Home";
+import InfoPage from "./core/InfoPage";
 import PrivateRoute from "./auth/PrivateRoute";
 import Dash from "./user/UserDash";
 import AdminRoute from "./auth/AdminRoute";
@@ -13,13 +14,14 @@ import Purchase from "./core/Purchase";
 import Project from "./core/Project";
 import Cart from "./core/Cart";
 import Profile from "./user/Profile";
-import Orders from "./admin/Orders";
+import ManageProjects from "./admin/ManageProjects";
 
 const Routes = () => {
     return (
         <BrowserRouter>
             <Switch>
                 <Route path="/" exact component={Home} />
+                <Route path="/infopage" exact component={InfoPage} />
                 <Route path="/purchase" exact component={Purchase} />
                 <Route path="/login" exact component={Login} />
                 <Route path="/register" exact component={Register} />
@@ -42,11 +44,15 @@ const Routes = () => {
                     exact
                     component={Profile}
                 />
-                <AdminRoute path="/admin/orders" exact component={Orders} />
                 <PrivateRoute
                     path="/profile/:userId"
                     exact
                     component={Profile}
+                />
+                <PrivateRoute
+                    path="/admin/projects"
+                    exact
+                    component={ManageProjects}
                 />
             </Switch>
         </BrowserRouter>

@@ -18,11 +18,18 @@
     }
 }
 
-.name {
+.jumbotron {
+    background-image: url(https://images.unsplash.com/photo-1569285647999-67fc5a1ff1ad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80);
+    height: 250px;
+    background-size: cover;
+    background-position: center center;
+}
+
+/* .name {
     background: indigo;
     color: #fff;
     font-weight: bold;
-}
+} */
 
 /* black shade form 10-1 */
 /* .black-10 {
