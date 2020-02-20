@@ -8,24 +8,15 @@ const Info = () => {
             description={`The info page`}
             className="container-fluid"
         >
-            <div className="card ">
-                <div className="card-header card-header-1 ">API 1</div>
-                <div className="card-body"></div>
-            </div>
-            <br />
-            <div className="card ">
-                <div className="card-header card-header-1 ">API 2</div>
-                <div className="card-body"></div>
-            </div>
-            <br />
-            <div className="card ">
-                <div className="card-header card-header-1 ">API 3</div>
-                <div className="card-body"></div>
-            </div>
-            <br />
-            <div className="card ">
-                <div className="card-header card-header-1 ">API 4</div>
-                <div className="card-body"></div>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Steve Jobs</h5>
+
+                    <h6 class="card-subtitle mb-2 text-muted">
+                        steve@apple.com
+                    </h6>
+                    <p class="card-text">Stay Hungry, Stay Foolish</p>
+                </div>
             </div>
         </Layout>
     );

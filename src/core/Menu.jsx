@@ -17,10 +17,19 @@ const Menu = ({ history }) => (
             <li className="nav-item">
                 <Link
                     className="nav-link"
-                    style={isActive(history, "/")}
+                    style={isActive(history, "/home")}
                     to="/"
                 >
-                    Home
+                    Main
+                </Link>
+            </li>
+            <li className="nav-item">
+                <Link
+                    className="nav-link"
+                    style={isActive(history, "/infopage")}
+                    to="/infopage"
+                >
+                    Info Page
                 </Link>
             </li>
 
@@ -31,15 +40,6 @@ const Menu = ({ history }) => (
                     to="/purchase"
                 >
                     Donate
-                </Link>
-            </li>
-            <li className="nav-item">
-                <Link
-                    className="nav-link"
-                    style={isActive(history, "/infopage")}
-                    to="/infopage"
-                >
-                    Info Page
                 </Link>
             </li>
 
@@ -82,7 +82,7 @@ const Menu = ({ history }) => (
 
             {!isAuthenticated() && (
                 <Fragment>
-                    <li className="nav-item">
+                    <li id="swing1" className="nav-item">
                         <Link
                             className="nav-link"
                             style={isActive(history, "/login")}
@@ -92,7 +92,7 @@ const Menu = ({ history }) => (
                         </Link>
                     </li>
 
-                    <li className="nav-item">
+                    <li id="swing1" className="nav-item">
                         <Link
                             className="nav-link"
                             style={isActive(history, "/register")}
