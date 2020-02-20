@@ -15,6 +15,7 @@ import Project from "./core/Project";
 import Cart from "./core/Cart";
 import Profile from "./user/Profile";
 import ManageProjects from "./admin/ManageProjects";
+import IceBox from "./core/IceBox";
 
 const Routes = () => {
     return (
@@ -22,6 +23,7 @@ const Routes = () => {
             <Switch>
                 <Route path="/" exact component={Home} />
                 <Route path="/infopage" exact component={InfoPage} />
+                <Route path="/icebox" exact component={IceBox} />
                 <Route path="/purchase" exact component={Purchase} />
                 <Route path="/login" exact component={Login} />
                 <Route path="/register" exact component={Register} />

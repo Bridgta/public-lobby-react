@@ -65,8 +65,9 @@ const Dashboard = () => {
     const purchaseHistory = history => {
         return (
             <div className="card mb-5">
-                <h3 className="card-header">Purchase history</h3>
-                <ul className="list-group"></ul>
+                <Link className="nav-link" to={`/icebox`}>
+                    Track my contribution orders
+                </Link>
             </div>
         );
     };
@@ -74,7 +75,7 @@ const Dashboard = () => {
     return (
         <Layout
             title="Dashboard"
-            description={`G'day ${name}!`}
+            description={`Here is your dashboard ${name}!`}
             className="container-fluid"
         >
             <div className="row">
