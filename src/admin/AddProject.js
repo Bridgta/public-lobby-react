@@ -10,6 +10,7 @@ const AddProject = () => {
         title: "",
         description: "",
         price: "",
+        reach: "",
         categories: [],
         category: "",
         tax: "",
@@ -26,6 +27,7 @@ const AddProject = () => {
         title,
         description,
         price,
+        reach,
         categories,
         category,
         tax,
@@ -76,6 +78,7 @@ const AddProject = () => {
                     description: "",
                     photo: "",
                     price: "",
+                    reach: "",
                     goalreached: "",
                     loading: false,
                     createdProject: data.name
@@ -115,7 +118,15 @@ const AddProject = () => {
                 />
             </div>
             <div className="form-group">
-                <label className="text-muted">Amount To Raise</label>
+                <label className="text-muted">Total Amount to Raise</label>
+                <textarea
+                    onChange={handleChange("reach")}
+                    className="form-control"
+                    value={reach}
+                />
+            </div>
+            <div className="form-group">
+                <label className="text-muted">Amount per person</label>
                 <input
                     onChange={handleChange("price")}
                     type="number"
@@ -187,7 +198,7 @@ const AddProject = () => {
     return (
         <Layout
             title="Add a new project"
-            description={`G'day ${user.name}, ready to add a new project?`}
+            description={`Hello ${user.name}, please add a new project`}
         >
             <div className="row">
                 <div className="col-md-8 offset-md-2">

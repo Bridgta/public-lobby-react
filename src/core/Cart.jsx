@@ -16,7 +16,7 @@ const Cart = () => {
     const showItems = items => {
         return (
             <div>
-                <h2>You're donating to{`${items.length}`} funds</h2>
+                <h2>You're Making {`${items.length}`} Contribution(s)</h2>
                 <hr />
                 {items.map((project, i) => (
                     <Card
@@ -35,15 +35,15 @@ const Cart = () => {
 
     const noItemsMessage = () => (
         <h2>
-            You're not contibuting to any funds <br />{" "}
-            <Link to="/purchase">Explore Donations</Link>
+            You're Not Contributing to Any Funds <br />{" "}
+            <Link to="/purchase">Explore Projects</Link>
         </h2>
     );
 
     return (
         <Layout
-            title="Contibution Cart"
-            description="Manage your contibutions."
+            title="Current Contributions"
+            description="Manage Your Current Funding"
             className="container-fluid"
         >
             <div className="row">
@@ -52,7 +52,7 @@ const Cart = () => {
                 </div>
 
                 <div className="col-6">
-                    <h2 className="mb-4">Your contribution summary</h2>
+                    <h2 className="mb-4">Your Contributions Summary</h2>
                     <hr />
                     <Checkout projects={items} setRun={setRun} run={run} />
                 </div>

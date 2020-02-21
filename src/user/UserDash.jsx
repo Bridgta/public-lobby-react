@@ -13,20 +13,6 @@ const Dashboard = () => {
     } = isAuthenticated();
     const token = isAuthenticated().token;
 
-    // const init = (userId, token) => {
-    //     getPurchaseHistory(userId, token).then(data => {
-    //         if (data.error) {
-    //             console.log(data.error);
-    //         } else {
-    //             setHistory(data);
-    //         }
-    //     });
-    // };
-
-    // useEffect(() => {
-    //     init(_id, token);
-    // }, []);
-
     const userLinks = () => {
         return (
             <div className="card">
@@ -34,7 +20,7 @@ const Dashboard = () => {
                 <ul className="list-group">
                     <li className="list-group-item">
                         <Link className="nav-link" to="/cart">
-                            My Cart
+                            My Current Contributions
                         </Link>
                     </li>
                     <li className="list-group-item">
@@ -66,7 +52,7 @@ const Dashboard = () => {
         return (
             <div className="card mb-5">
                 <Link className="nav-link" to={`/icebox`}>
-                    Track my contribution orders
+                    Track My Contributions
                 </Link>
             </div>
         );
@@ -74,8 +60,8 @@ const Dashboard = () => {
 
     return (
         <Layout
-            title="Dashboard"
-            description={`Here is your dashboard ${name}!`}
+            title="Profile"
+            description={`Hello ${name}, Welcome to Your Dash`}
             className="container-fluid"
         >
             <div className="row">

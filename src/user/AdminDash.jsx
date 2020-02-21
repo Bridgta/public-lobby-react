@@ -25,7 +25,7 @@ const AdminDash = () => {
                         </Link>
                     </li>
                     <li className="list-group-item">
-                        <Link className="nav-link" to="/admin/donations">
+                        <Link className="nav-link" to="/icebox">
                             View Donations
                         </Link>
                     </li>

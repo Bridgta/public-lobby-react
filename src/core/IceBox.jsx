@@ -9,12 +9,15 @@ const IceBox = () => {
             className="container"
         >
             <div className="card ">
-                <div className="card-header card-header-1 ">Night Mode</div>
+                <div className="card-header card-header-1 ">Night Mode OFF</div>
                 <div className="card-header card-header-1 ">
                     User Purchase History
                 </div>
                 <div className="card-header card-header-1 ">
-                    Dynamic Contributions
+                    Dynamic Polling
+                </div>
+                <div className="card-header card-header-1 ">
+                    Admin View User Order
                 </div>
                 <div className="card-header card-header-1 ">Social Buttons</div>
                 <div className="card-header card-header-1 ">Sleep</div>

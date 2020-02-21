@@ -4,7 +4,6 @@ const Checkbox = ({ categories, handleFilters }) => {
     const [checked, setCheked] = useState([]);
 
     const handleToggle = c => () => {
-        // return the first index or -1
         const currentCategoryId = checked.indexOf(c);
         const newCheckedCategoryId = [...checked];
         if (currentCategoryId === -1) {

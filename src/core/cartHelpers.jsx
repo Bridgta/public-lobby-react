@@ -8,8 +8,6 @@ export const addItem = (item = [], count = 0, next = f => f) => {
             ...item,
             count: 1
         });
-
-        // remove duplicates
         cart = Array.from(new Set(cart.map(p => p._id))).map(id => {
             return cart.find(p => p._id === id);
         });

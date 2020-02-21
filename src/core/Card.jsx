@@ -52,16 +52,6 @@ const Card = ({
         );
     };
 
-    // const showStock = quantity => {
-    //     return quantity > 0 ? (
-    //         <span className="badge badge-primary badge-pill">In Stock </span>
-    //     ) : (
-    //         <span className="badge badge-primary badge-pill">
-    //             Out of Stock{" "}
-    //         </span>
-    //     );
-    // };
-
     const handleChange = projectId => event => {
         setRun(!run);
         setCount(event.target.value < 1 ? 1 : event.target.value);
@@ -121,7 +111,7 @@ const Card = ({
                     Category: {project.category && project.category.name}
                 </p>
                 <p className="black-8">
-                    Added on {moment(project.createdAt).fromNow()}
+                    Fund Added {moment(project.createdAt).fromNow()}
                 </p>
 
                 <br />
@@ -130,7 +120,6 @@ const Card = ({
                 {showAddToCartBtn(showAddToCartButton)}
 
                 {showRemoveButton(showRemoveProjectButton)}
-
                 {showCartUpdateOptions(cartUpdate)}
             </div>
         </div>

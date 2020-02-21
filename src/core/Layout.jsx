@@ -5,6 +5,7 @@ import "../styles.css";
 const Layout = ({
     title = "Title",
     description = "Description",
+
     className,
     children
 }) => (

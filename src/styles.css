@@ -23,6 +23,7 @@
     height: 250px;
     background-size: cover;
     background-position: center center;
+    background-position: fixed;
 }
 
 /* .name {

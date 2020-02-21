@@ -6,7 +6,7 @@ const Info = () => {
     return (
         <Layout
             title="Influence & Lobbying"
-            description={`Take a look at influence money below`}
+            description={`Take a Look at Influence Money Below`}
             className="container-fluid"
         >
             <div class="card">

@@ -38,12 +38,12 @@ const Home = () => {
     return (
         <Layout
             title="The Public Lobby"
-            description="The Public Lobby"
+            description="View Current Funding Efforts"
             className="container-fluid"
         >
             <Search />
             <h2 className="mb-4">
-                <i class="fas fa-analytics">Trending Funds</i>
+                <i>Trending Funds</i>
             </h2>
             <div className="row">
                 {projectsBySell.map((project, i) => (
@@ -52,7 +52,9 @@ const Home = () => {
                     </div>
                 ))}
             </div>
-            <h2 className="mb-4">New Bills</h2>
+            <h2 className="mb-4">
+                <i>New Bills</i>
+            </h2>
             <div className="row">
                 {projectsByArrival.map((project, i) => (
                     <div key={i} className="col-4 mb-3">

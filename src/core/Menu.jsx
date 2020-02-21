@@ -2,6 +2,7 @@ import React, { Fragment } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { logout, isAuthenticated } from "../auth";
 import { itemTotal } from "./cartHelpers";
+// import logo from "./images/logo.png";
 
 const isActive = (history, path) => {
     if (history.location.pathname === path) {
