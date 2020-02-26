@@ -11,7 +11,6 @@ Node.js, Express, MongoDB, React.
 
 ### Product Shots 
 
-![infopage](https://imgur.com/a/kEUHtQs)
 
 
 
